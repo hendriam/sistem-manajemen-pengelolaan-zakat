@@ -146,7 +146,7 @@
                     orderable: false,
                 }
             ],
-            order: [ 4, 'desc' ],
+            order: [ 5, 'desc' ],
             columnDefs: [
                 {targets: [5], className: 'dt-center'}
             ],
