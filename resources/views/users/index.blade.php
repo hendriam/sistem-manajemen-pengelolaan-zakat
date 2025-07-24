@@ -143,7 +143,7 @@
             ],
             order: [ 4, 'desc' ],
             columnDefs: [
-                {targets: [6], className: 'dt-center'}
+                {targets: [5], className: 'dt-center'}
             ],
         });
 
