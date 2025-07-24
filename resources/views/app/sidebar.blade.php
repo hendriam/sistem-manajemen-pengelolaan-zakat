@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-light-primary elevation-4">
+<aside class="main-sidebar sidebar-light-teal elevation-4">
 	<!-- Brand Logo -->
 	<a href="{{ route('dashboard') }}" class="brand-link bg-dark">
 		<img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
@@ -37,6 +37,12 @@
 					<li class="nav-item">
 						<a href="{{ route('muzakkis.index') }}" class="nav-link {{ request()->routeIs('muzakkis.*') ? 'active' : '' }}">
 							<i class="fas fa-user-friends nav-icon"></i> <p>Muzakki</p>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="{{ route('mustahiks.index') }}" class="nav-link {{ request()->routeIs('mustahiks.*') ? 'active' : '' }}">
+							<i class="fas fa-user-friends nav-icon"></i> <p>Mustahik</p>
 						</a>
 					</li>
 				@endif

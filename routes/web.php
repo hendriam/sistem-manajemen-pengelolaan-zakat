@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 // Master
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MuzakkiController;
+use App\Http\Controllers\MustahikController;
 
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -40,5 +41,15 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('{muzakki}/edit', [MuzakkiController::class, 'edit'])->name('edit');
 		Route::put('{muzakki}', [MuzakkiController::class, 'update'])->name('update');
 		Route::delete('{muzakki}', [MuzakkiController::class, 'destroy'])->name('destroy');
+	});
+
+	// Mustahik
+	Route::prefix('mustahiks')->name('mustahiks.')->group(function () {
+		Route::match(['get', 'post'], '/', [MustahikController::class, 'index'])->name('index');
+		Route::get('create', [MustahikController::class, 'create'])->name('create');
+		Route::post('store', [MustahikController::class, 'store'])->name('store');
+		Route::get('{mustahik}/edit', [MustahikController::class, 'edit'])->name('edit');
+		Route::put('{mustahik}', [MustahikController::class, 'update'])->name('update');
+		Route::delete('{mustahik}', [MustahikController::class, 'destroy'])->name('destroy');
 	});
 });
