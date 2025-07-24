@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: app
+    container_name: sistem_manajemen_pengelolaan_zakat_app
     ports:
       - "8000:8000"
     volumes:
@@ -15,7 +15,7 @@ services:
 
   mysql:
     image: mysql:8.4
-    container_name: db
+    container_name: sistem_manajemen_pengelolaan_zakat_db
     ports:
       - "3306:3306"
     environment:
