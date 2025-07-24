@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 
 // Master
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MuzakkiController;
 
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -29,5 +30,15 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('{user}/edit', [UserController::class, 'edit'])->name('edit');
 		Route::put('{user}', [UserController::class, 'update'])->name('update');
 		Route::delete('{user}', [UserController::class, 'destroy'])->name('destroy');
+	});
+
+	// Muzakki
+	Route::prefix('muzakkis')->name('muzakkis.')->group(function () {
+		Route::match(['get', 'post'], '/', [MuzakkiController::class, 'index'])->name('index');
+		Route::get('create', [MuzakkiController::class, 'create'])->name('create');
+		Route::post('store', [MuzakkiController::class, 'store'])->name('store');
+		Route::get('{muzakki}/edit', [MuzakkiController::class, 'edit'])->name('edit');
+		Route::put('{muzakki}', [MuzakkiController::class, 'update'])->name('update');
+		Route::delete('{muzakki}', [MuzakkiController::class, 'destroy'])->name('destroy');
 	});
 });

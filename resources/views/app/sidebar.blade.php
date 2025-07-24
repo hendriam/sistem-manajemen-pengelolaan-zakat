@@ -33,6 +33,12 @@
 							<i class="fas fa-user-friends nav-icon"></i> <p>User</p>
 						</a>
 					</li>
+
+					<li class="nav-item">
+						<a href="{{ route('muzakkis.index') }}" class="nav-link {{ request()->routeIs('muzakkis.*') ? 'active' : '' }}">
+							<i class="fas fa-user-friends nav-icon"></i> <p>Muzakki</p>
+						</a>
+					</li>
 				@endif
 			</ul>
 		</nav>
