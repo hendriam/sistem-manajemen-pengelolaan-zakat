@@ -26,7 +26,7 @@
             <!-- /.login-logo -->
             <div class="card card-outline card-primary">
                 <div class="card-header text-center">
-                    <a href="/" class="h1">Sistem Manajemen Pengelolaan <b>Zakat</b></a>
+                    <a href="/" class="h3">Sistem Manajemen Pengelolaan <b>Zakat</b></a>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Silahkan login untuk memulai sesi and</p>
