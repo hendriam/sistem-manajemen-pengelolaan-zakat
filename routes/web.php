@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MuzakkiController;
 use App\Http\Controllers\MustahikController;
-
+use App\Http\Controllers\ZakatTransactionController;
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/', [AuthController::class, 'authenticate']);
@@ -51,5 +51,15 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('{mustahik}/edit', [MustahikController::class, 'edit'])->name('edit');
 		Route::put('{mustahik}', [MustahikController::class, 'update'])->name('update');
 		Route::delete('{mustahik}', [MustahikController::class, 'destroy'])->name('destroy');
+	});
+
+	// Zakat Transactions
+	Route::prefix('zakat-transactions')->name('zakat-transactions.')->group(function () {
+		Route::match(['get', 'post'], '/', [ZakatTransactionController::class, 'index'])->name('index');
+		Route::get('create', [ZakatTransactionController::class, 'create'])->name('create');
+		Route::post('store', [ZakatTransactionController::class, 'store'])->name('store');
+		Route::get('{transaction}/edit', [ZakatTransactionController::class, 'edit'])->name('edit');
+		Route::put('{transaction}', [ZakatTransactionController::class, 'update'])->name('update');
+		Route::delete('{transaction}', [ZakatTransactionController::class, 'destroy'])->name('destroy');
 	});
 });
