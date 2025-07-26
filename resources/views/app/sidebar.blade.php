@@ -22,29 +22,41 @@
 			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 				<li class="nav-item">
 					<a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-						<i class="nav-icon fas fa-hotel"></i> <p>Dashboard</p>
+						<i class="nav-icon fas fa-hotel"></i>
+						<p>Dashboard</p>
 					</a>
 				</li>
 
 				@if (auth()->user()->role == "admin")
-					<li class="nav-header">Master</li>
-					<li class="nav-item">
-						<a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
-							<i class="fas fa-user-friends nav-icon"></i> <p>User</p>
-						</a>
-					</li>
+				<li class="nav-header">Master</li>
+				<li class="nav-item">
+					<a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
+						<i class="fas fa-user-friends nav-icon"></i>
+						<p>User</p>
+					</a>
+				</li>
 
-					<li class="nav-item">
-						<a href="{{ route('muzakkis.index') }}" class="nav-link {{ request()->routeIs('muzakkis.*') ? 'active' : '' }}">
-							<i class="fas fa-user-friends nav-icon"></i> <p>Muzakki</p>
-						</a>
-					</li>
+				<li class="nav-item">
+					<a href="{{ route('muzakkis.index') }}" class="nav-link {{ request()->routeIs('muzakkis.*') ? 'active' : '' }}">
+						<i class="fas fa-user-tag nav-icon"></i>
+						<p>Muzakki</p>
+					</a>
+				</li>
 
-					<li class="nav-item">
-						<a href="{{ route('mustahiks.index') }}" class="nav-link {{ request()->routeIs('mustahiks.*') ? 'active' : '' }}">
-							<i class="fas fa-user-friends nav-icon"></i> <p>Mustahik</p>
-						</a>
-					</li>
+				<li class="nav-item">
+					<a href="{{ route('mustahiks.index') }}" class="nav-link {{ request()->routeIs('mustahiks.*') ? 'active' : '' }}">
+						<i class="fas fa-users icon"></i>
+						<p>Mustahik</p>
+					</a>
+				</li>
+
+				<li class="nav-header">Transaksi</li>
+				<li class="nav-item">
+					<a href="{{ route('zakat-transactions.index') }}" class="nav-link {{ request()->routeIs('zakat-transactions.*') ? 'active' : '' }}">
+						<i class="fas fa-envelope-open-text nav-icon"></i>
+						<p>Bayar Zakat</p>
+					</a>
+				</li>
 				@endif
 			</ul>
 		</nav>
