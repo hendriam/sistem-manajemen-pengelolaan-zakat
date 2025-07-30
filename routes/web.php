@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MuzakkiController;
 use App\Http\Controllers\MustahikController;
 use App\Http\Controllers\ZakatTransactionController;
+use App\Http\Controllers\DistributionController;
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/', [AuthController::class, 'authenticate']);
@@ -19,9 +20,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 	// Profile
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-    Route::put('profile/ganti-password/{id}', [ProfileController::class, 'changePassword'])->name('profile.ganti-password');
-    Route::put('profile/update-profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update-profile');
+	Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+	Route::put('profile/ganti-password/{id}', [ProfileController::class, 'changePassword'])->name('profile.ganti-password');
+	Route::put('profile/update-profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update-profile');
 
 	// User
 	Route::prefix('users')->name('users.')->group(function () {
@@ -61,5 +62,15 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('{transaction}/edit', [ZakatTransactionController::class, 'edit'])->name('edit');
 		Route::put('{transaction}', [ZakatTransactionController::class, 'update'])->name('update');
 		Route::delete('{transaction}', [ZakatTransactionController::class, 'destroy'])->name('destroy');
+	});
+
+	// Distributions
+	Route::prefix('distributions')->name('distributions.')->group(function () {
+		Route::match(['get', 'post'], '/', [DistributionController::class, 'index'])->name('index');
+		Route::get('create', [DistributionController::class, 'create'])->name('create');
+		Route::post('store', [DistributionController::class, 'store'])->name('store');
+		Route::get('{distribution}/edit', [DistributionController::class, 'edit'])->name('edit');
+		Route::put('{distribution}', [DistributionController::class, 'update'])->name('update');
+		Route::delete('{distribution}', [DistributionController::class, 'destroy'])->name('destroy');
 	});
 });

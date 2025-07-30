@@ -57,6 +57,13 @@
 						<p>Bayar Zakat</p>
 					</a>
 				</li>
+
+				<li class="nav-item">
+					<a href="{{ route('distributions.index') }}" class="nav-link {{ request()->routeIs('distributions.*') ? 'active' : '' }}">
+						<i class="fas fa-envelope-open-text nav-icon"></i>
+						<p>Penyaluran Zakat</p>
+					</a>
+				</li>
 				@endif
 			</ul>
 		</nav>
