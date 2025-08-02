@@ -53,14 +53,14 @@
 				<li class="nav-header">Transaksi</li>
 				<li class="nav-item">
 					<a href="{{ route('zakat-transactions.index') }}" class="nav-link {{ request()->routeIs('zakat-transactions.*') ? 'active' : '' }}">
-						<i class="fas fa-envelope-open-text nav-icon"></i>
+						<i class="fas fa-handshake nav-icon"></i>
 						<p>Bayar Zakat</p>
 					</a>
 				</li>
 
 				<li class="nav-item">
 					<a href="{{ route('distributions.index') }}" class="nav-link {{ request()->routeIs('distributions.*') ? 'active' : '' }}">
-						<i class="fas fa-envelope-open-text nav-icon"></i>
+						<i class="fas fa-hand-holding-heart nav-icon"></i>
 						<p>Penyaluran Zakat</p>
 					</a>
 				</li>
