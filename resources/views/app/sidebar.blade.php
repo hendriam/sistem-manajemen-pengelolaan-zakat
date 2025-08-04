@@ -64,6 +64,21 @@
 						<p>Penyaluran Zakat</p>
 					</a>
 				</li>
+
+				<li class="nav-header">Laporan</li>
+				<li class="nav-item">
+					<a href="{{ route('report-zakat-transactions.index') }}" class="nav-link {{ request()->routeIs('report-zakat-transactions.*') ? 'active' : '' }}">
+						<i class="fas fa-handshake nav-icon"></i>
+						<p>Bayar Zakat</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="{{ route('report-distributions.index') }}" class="nav-link {{ request()->routeIs('report-distributions.*') ? 'active' : '' }}">
+						<i class="fas fa-hand-holding-heart nav-icon"></i>
+						<p>Penyaluran Zakat</p>
+					</a>
+				</li>
 				@endif
 			</ul>
 		</nav>

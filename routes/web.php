@@ -11,6 +11,8 @@ use App\Http\Controllers\MuzakkiController;
 use App\Http\Controllers\MustahikController;
 use App\Http\Controllers\ZakatTransactionController;
 use App\Http\Controllers\DistributionController;
+use App\Http\Controllers\ReportZakatTransactionController;
+use App\Http\Controllers\ReportDistributionController;
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/', [AuthController::class, 'authenticate']);
@@ -73,4 +75,11 @@ Route::middleware(['auth'])->group(function () {
 		Route::put('{distribution}', [DistributionController::class, 'update'])->name('update');
 		Route::delete('{distribution}', [DistributionController::class, 'destroy'])->name('destroy');
 	});
+
+	// Report
+	Route::match(['get', 'post'], 'report-zakat-transactions', [ReportZakatTransactionController::class, 'index'])->name('report-zakat-transactions.index');
+	Route::get('report-zakat-transactions/export/pdf', [ReportZakatTransactionController::class, 'exportPDF'])->name('report-zakat-transactions.export-pdf');
+
+	Route::match(['get', 'post'], 'report-distributions', [ReportDistributionController::class, 'index'])->name('report-distributions.index');
+	Route::get('report-distributions/export/pdf', [ReportDistributionController::class, 'exportPDF'])->name('report-distributions.export-pdf');
 });
